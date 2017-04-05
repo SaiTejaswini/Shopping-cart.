@@ -1,0 +1,21 @@
+{
+  "name": "symphony-commerce-cart",
+  "version": "0.1",
+  "homepage": "None",
+  "authors": [
+    "SaiTejaswini <tejaswini.mannava@gmail.com>"
+  ],
+  "description": "Symphony Commerce",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.4",
+    "angular-smart-table": "~2.1.2"
+  }
+}

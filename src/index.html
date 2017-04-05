@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <!-- bower:css -->
+  <!-- endbower -->
+  <link rel="stylesheet" href="app.css" />
+  <!-- bower:js -->
+  <!-- endbower -->
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="mainCtrl" class = "home-page">
+
+  <div class = "main">
+    <header class="header">
+      <img src="https://d20b8ckvu6gb0w.cloudfront.net/companysite/images/sticky-logo.png" alt="Symphony Commerce"></img>
+      <button type="button" class="open-cart app-button"  ng-click="openCart()">Cart ({{cartSize}})</button>
+    </header>
+    <div class ="content">
+      <div id="columns" ng-repeat="card in products" ng-hide="showModal.value">
+        <figure>
+          <img src = "" ng-src="{{card.src}}">
+          <div class="attr-group">
+            <figcaption class = "card-attr card-attr-name"> {{card.name}}</figcaption>
+            <div class = "card-attr card-attr-name">${{card.price | number: 2}}</div>
+            <div class ="attr-group">
+                <div class = "card-attr">Wholesale</div>
+                <input class = "card-attr" type="checkbox" ng-model="card.isWholesale" ng-change="changePrice(card)"></input>
+              <button type="button" class ="btn app-button" data-ng-click="addToCart(card)">Add to Cart</button>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="modal-content" ng-show="showModal.value">
+    <div class="modal-header">
+      <span class="close" ng-click="closeModal()">&times;</span>
+      <h4>Your Cart</h4>
+    </div>
+    <div class="modal-body">
+      <table st-table="displayedCollection" st-safe-src="cart.items" class="table">
+        <thead>
+          <tr>
+            <th st-sort="Name">Name</th>
+            <th st-sort="Price">Price</th>
+            <th st-sort="Quantity">Quantity</th>
+            <th>Total Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="row in displayedCollection">
+            <td>{{row.name}}</td>
+            <td>${{row.price | number:2}}</td>
+            <td><input type="number" ng-model="row.quantity"></td>
+            <td>{{(row.price * row.quantity) | number:2 }}</td>
+            <td><button type="button" class ="btn app-button" data-ng-click="delete(row)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <h3>Your Total: ${{totalPrice | number:2}}</h3>
+    </div>
+  </div>
+</body>
+</html>
