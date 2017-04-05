@@ -9,11 +9,20 @@ Uses bower for dependency management. (refer bower.json for all the bower depend
 This app is based on angular and uses angular smart table:
 Angular Smart Table : http://lorenzofox3.github.io/smart-table-website/ (For an angular version of html table)
 
-Running the server:
+Build Versions:
+Node version : (v0.7.8)
+grunt-cli:  (v1.2.0)
+grunt: (v0.4.5)
+bower: 1.8.0
 
-After unzipping, cd into build directory. run
+Now run these commands:
 
-python -m SimpleHTTPServer 8000
+```bash
+  npm install
+  bower install
+  cd build/
+  python -m SimpleHTTPServer 8000  
+```
 
 From the browser, hit http://localhost:8000. This should launch the app.
 

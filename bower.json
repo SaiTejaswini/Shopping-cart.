@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-route": "~1.4.4",
+    "angular": "~1.4.4",
     "angular-smart-table": "~2.1.2"
   }
 }

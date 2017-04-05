@@ -59,12 +59,13 @@ function($scope, $http, ModalService) {
       $scope.showModal.value  = true;
     };
 
-    //Delete elements in cart from modal.
+    //Delete elements in cart from modal and set quantity in product to 0.
     $scope.delete = function(row) {
       var index = $scope.cart.items.indexOf(row);
       if (index !== -1) {
         $scope.cart.items.splice(index, 1);
       }
+      $scope.products[$scope.products.indexOf(row)]["quantity"] = 0;
     }
 
     //Closes modal
